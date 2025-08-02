@@ -10,12 +10,12 @@ class CalculationTask:
         self.result = 0  # 存储计算结果
 
     def load_new_number(self, new_number):
-        filename = '质数,素数查找'
+        filename = 'find_prime_number'
         with open(filename, 'a') as f_obj:
             f_obj.write(str(new_number) + "\n")
 
     def get_number(self):
-        with open("质数,素数数字最后保存", "r") as f:
+        with open("final_number", "r") as f:
             number = int(f.read())
             return number
 
@@ -56,7 +56,7 @@ class CalculationTask:
         # 循环结束后保存结果
         self.save_result()
 
-    def save_result(self, filename="质数,素数数字最后保存"):
+    def save_result(self, filename="final_number"):
         """保存结果到文件"""
         with open(filename, 'w') as f_last:
             f_last.write(str(self.result))
@@ -74,3 +74,4 @@ worker.start()
 input("Press Enter to stop calculation...\n")
 task.stop()
 worker.join()
+
